@@ -1,0 +1,39 @@
+html {
+    background:#37DC94
+
+    ;
+
+  }
+
+
+
+.calculator {
+    font-size: 28px;
+    margin: 0 auto;
+    width: 10em;
+  }
+  
+  .viewer {
+    color: #26A7FF;
+    float: left;
+    line-height: 3em;
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 7.5em;
+    height: 3em;
+  }
+  
+  
+  button {
+    border: 0;
+    background: #FFD026;
+    color: #FD9A28;
+    cursor: pointer;
+    float: left;
+    font: inherit;
+    margin: 0.25em;
+    width: 2em;
+    height: 2em;
+    transition: all 0.5s;
+  }
