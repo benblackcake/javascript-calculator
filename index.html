@@ -68,11 +68,16 @@ function clean(){
 
 function show(x){
     
-    if(viewer.innerHTML==""){
-        flag=false;
+    // if(viewer.innerHTML==""){
+    //     flag=false;
         
-    }else{
-        if(flag==true)clean();
+    // }else{
+    //     if(flag==true)clean();
+    //     flag=false;
+    // }
+
+    if(flag==true){
+        clean();
         flag=false;
     }
     console.log(flag)
