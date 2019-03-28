@@ -16,34 +16,34 @@
       
         <div id="viewer" class="viewer"></div>
       
-        <button class="number" id="7" value="7" onclick="show(document.getElementById('7').value)">7</button>
-        <button class="number" id="8" value="8" onclick="show(document.getElementById('8').value)">8</button>
-        <button class="number" id="9" value="9" onclick="show(document.getElementById('9').value)">9</button>
-        <button id="plus" value="+" onclick="show(document.getElementById('plus').value)" >+</button>
+        <button class="number" id="7" value="7" onclick="show(this)">7</button>
+        <button class="number" id="8" value="8" onclick="show(this)">8</button>
+        <button class="number" id="9" value="9" onclick="show(this)">9</button>
+        <button id="plus" value="+" onclick="show(this)" >+</button>
       
-        <button class="number" id="4" value="4" onclick="show(document.getElementById('4').value)">4</button>
-        <button class="number" id="5" value="5" onclick="show(document.getElementById('5').value)">5</button>
-        <button class="number" id="6" value="6" onclick="show(document.getElementById('6').value)">6</button>
-        <button id="minus" value="-" onclick="show(document.getElementById('minus').value)">-</button>
+        <button class="number" id="4" value="4" onclick="show(this)">4</button>
+        <button class="number" id="5" value="5" onclick="show(this)">5</button>
+        <button class="number" id="6" value="6" onclick="show(this)">6</button>
+        <button id="minus" value="-" onclick="show(this)">-</button>
       
-        <button class="number" id="1" value="1" onclick="show(document.getElementById('1').value)">1</button>
-        <button class="number" id="2" value="2" onclick="show(document.getElementById('2').value)">2</button>
-        <button class="number" id="3" value="3" onclick="show(document.getElementById('3').value)">3</button>
-        <button id="times" value="*" onclick="show(document.getElementById('times').value)">*</button>
+        <button class="number" id="1" value="1" onclick="show(this)">1</button>
+        <button class="number" id="2" value="2" onclick="show(this)">2</button>
+        <button class="number" id="3" value="3" onclick="show(this)">3</button>
+        <button id="times" value="*" onclick="show(this)">*</button>
       
-        <button class="number" id="0" value="0" onclick="show(document.getElementById('0').value)">0</button>
-        <button class="number" id="period" value="." onclick="show(document.getElementById('period').value)">.</button>
+        <button class="number" id="0" value="0" onclick="show(this)">0</button>
+        <button class="number" id="period" value="." onclick="show(this)">.</button>
         <button  onclick="calculate()">=</button>
-        <button id="divide" value="/" onclick="show(document.getElementById('divide').value)">/</button>
+        <button id="divide" value="/" onclick="show(this)">/</button>
         
       </div>
 </body>
 
 
 <script>
-var viewer=document.getElementById("viewer");
+var viewer=document.getElementById("viewer")
 var num =document.getElementsByClassName("number");
-//var flag = new Boolean(false);
+var flag = new Boolean(false);
 
 
 
@@ -51,17 +51,36 @@ function calculate(){
     
     var input=viewer.innerHTML;
 	var result = eval(input);
-    viewer.innerHTML=result;
-    
+
+    if(flag==false){
+        viewer.innerHTML=result;
+        flag=true;
+        
+    }
+    console.log("="+flag);
     
 }
 
 function clean(){
     viewer.innerHTML="";
+    //stack1=[];
 }
 
 function show(x){
-    viewer.innerHTML+=x;
+    
+    if(viewer.innerHTML==""){
+        flag=false;
+        
+    }else{
+        if(flag==true)clean();
+        flag=false;
+    }
+    console.log(flag)
+    
+
+    
+    viewer.innerHTML+=x.value;
+    
     
 }
 
